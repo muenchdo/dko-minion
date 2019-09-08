@@ -1,0 +1,18 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: minion
+spec:
+  selector:
+    matchLabels:
+      app: minion
+  template:
+    metadata:
+      labels:
+        app: minion
+    spec:
+      containers:
+        - name: app
+          image: muenchdo/dko-minion:no-exist
+          ports:
+            - containerPort: 8080
